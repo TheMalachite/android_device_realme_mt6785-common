@@ -129,6 +129,7 @@ ro.netflix.bsp_rev=MTK6785-18787-1
 # Neural Networks
 ro.vendor.mtk_nn.option=D,E,F,Z
 ro.vendor.mtk_nn_quant_preferred=1
+ro.vendor.mtk_nn_support=1
 
 # OPPO
 persist.sys.hypnus.daemon.enable=1

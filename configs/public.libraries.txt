@@ -1,3 +1,5 @@
 libOpenCL.so
 libvpu.so
 libion_mtk.so
+libarmnn_ndk.mtk.so
+libcmdl_ndk.mtk.so
