@@ -34,6 +34,16 @@ on init
     # OPPO VooC
     chown system system /proc/fastchg_fw_update
 
+service vendor.nfc_hal_service /vendor/bin/hw/android.hardware.nfc@1.2-service
+    override
+    class hal
+    user nfc
+    group nfc
+    disabled
+
+on property:ro.boot.product.hardware.sku=nfc
+    start vendor.nfc_hal_service
+
 on late-init
     write /proc/bootprof "INIT:late-init"
 
