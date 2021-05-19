@@ -182,8 +182,22 @@ PRODUCT_PACKAGES += \
 
 # Rootdir
 PRODUCT_PACKAGES += \
+    init.ago.rc \
+    init.connectivity.rc \
+    init.modem.rc \
     init.mt6785.rc \
-    fstab.mt6785
+    init.mt6785.usb.rc \
+    init.oppo.fingerprints.rc \
+    init.oppo.reserve.rc \
+    init.oppo.vendor.monitor.rc \
+    init.project.rc \
+    init.sensor_1_0.rc \
+    fstab.mt6785 \
+    ueventd.mt6785.rc \
+    init.oppo.fingerprints.sh \
+    init.oppo.wifi.debug.sh \
+    partition_permission.sh \
+    throttle.sh
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/rootdir/etc/fstab.mt6785:$(TARGET_COPY_OUT_RAMDISK)/fstab.mt6785
