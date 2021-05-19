@@ -26,7 +26,6 @@ $(call inherit-product, vendor/mediatek/ims/mtk-ims.mk)
 $(call inherit-product, vendor/mediatek/ims/mtk-engi.mk)
 
 # API
-PRODUCT_EXTRA_VNDK_VERSIONS := 29
 PRODUCT_SHIPPING_API_LEVEL := 29
 
 # Boot animation
