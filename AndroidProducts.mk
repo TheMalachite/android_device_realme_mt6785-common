@@ -15,8 +15,5 @@
 # limitations under the License.
 #
 
-LOCAL_PATH := $(call my-dir)
-
-ifeq ($(TARGET_DEVICE),RMX2001)
-include $(call all-makefiles-under,$(LOCAL_PATH))
-endif
+PRODUCT_MAKEFILES := \
+    $(LOCAL_DIR)/aosp_RMX2001.mk

@@ -1,5 +1,6 @@
 #
 # Copyright (C) 2020 Android Open Source Project
+# Copyright (C) 2021 The PixelExperience Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -14,7 +15,7 @@
 # limitations under the License.
 #
 
-COMMON_PATH := device/realme/mt6785-common
+DEVICE_PATH := device/realme/RMX2001
 
 # Architecture
 TARGET_ARCH := arm64
@@ -28,6 +29,9 @@ TARGET_2ND_ARCH_VARIANT := armv8-2a
 TARGET_2ND_CPU_ABI := armeabi-v7a
 TARGET_2ND_CPU_ABI2 := armeabi
 TARGET_2ND_CPU_VARIANT := cortex-a76
+
+# Assertation
+TARGET_OTA_ASSERT_DEVICE := RMX2001
 
 # Bootloader
 TARGET_BOOTLOADER_BOARD_NAME := oppo6785
@@ -51,7 +55,8 @@ BOARD_INCLUDE_DTB_IN_BOOTIMG := true
 BOARD_KERNEL_SEPARATED_DTBO := true
 BOARD_BOOT_HEADER_VERSION := 2
 
-TARGET_KERNEL_SOURCE := kernel/realme/mt6785
+TARGET_KERNEL_SOURCE := kernel/realme/RMX2001
+TARGET_KERNEL_CONFIG := RMX2001_defconfig
 TARGET_KERNEL_CLANG_COMPILE := true
 TARGET_KERNEL_CLANG_VERSION := r353983c
 
@@ -96,7 +101,7 @@ TARGET_BOARD_PLATFORM := mt6785
 
 # Recovery
 BOARD_INCLUDE_RECOVERY_DTBO := true
-TARGET_RECOVERY_FSTAB := $(COMMON_PATH)/rootdir/etc/fstab.mt6785
+TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/rootdir/etc/fstab.mt6785
 TARGET_RECOVERY_PIXEL_FORMAT := "RGBX_8888"
 TARGET_RECOVERY_UI_BLANK_UNBLANK_ON_INIT := true
 TARGET_USERIMAGES_USE_EXT4 := true
@@ -107,7 +112,7 @@ TARGET_RELEASETOOLS_EXTENSIONS := $(COMMON_PATH)
 # Sepolicy
 TARGET_USES_PREBUILT_VENDOR_SEPOLICY := true
 TARGET_HAS_FUSEBLK_SEPOLICY_ON_VENDOR := true
-BOARD_PLAT_PRIVATE_SEPOLICY_DIR := $(COMMON_PATH)/sepolicy/private
+BOARD_PLAT_PRIVATE_SEPOLICY_DIR := $(DEVICE_PATH)/sepolicy/private
 SELINUX_IGNORE_NEVERALLOWS := true
 
 # Verified Boot

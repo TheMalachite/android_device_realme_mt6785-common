@@ -1,5 +1,6 @@
 #
 # Copyright (C) 2020 Android Open Source Project
+# Copyright (C) 2021 The PixelExperience Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -13,8 +14,6 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-
-COMMON_PATH := device/realme/mt6785-common
 
 # Enable updating of APEXes
 $(call inherit-product, $(SRC_TARGET_DIR)/product/updatable_apex.mk)
@@ -39,7 +38,7 @@ PRODUCT_PACKAGES += \
     audio.a2dp.default
 
 PRODUCT_COPY_FILES += \
-    $(COMMON_PATH)/audio/audio_policy_configuration.xml:$(TARGET_COPY_OUT_PRODUCT)/vendor_overlay/$(PRODUCT_EXTRA_VNDK_VERSIONS)/etc/audio_policy_configuration.xml
+    $(LOCAL_PATH)/audio/audio_policy_configuration.xml:$(TARGET_COPY_OUT_PRODUCT)/vendor_overlay/$(PRODUCT_EXTRA_VNDK_VERSIONS)/etc/audio_policy_configuration.xml
 
 # Dynamic Partition
 PRODUCT_USE_DYNAMIC_PARTITIONS := true
@@ -52,7 +51,7 @@ PRODUCT_PACKAGES += \
 
 # Fingerprint
 PRODUCT_PACKAGES += \
-    android.hardware.biometrics.fingerprint@2.1-service.realme_mt6785
+    android.hardware.biometrics.fingerprint@2.1-service.RMX2001
 
 # HIDL
 PRODUCT_PACKAGES += \
@@ -60,7 +59,7 @@ PRODUCT_PACKAGES += \
     libhwbinder
 
 PRODUCT_COPY_FILES += \
-    $(COMMON_PATH)/vendor_override_manifest.xml:$(TARGET_COPY_OUT_PRODUCT)/vendor_overlay/$(PRODUCT_EXTRA_VNDK_VERSIONS)/etc/vintf/manifest/vendor_override_manifest.xml
+    $(LOCAL_PATH)/vendor_override_manifest.xml:$(TARGET_COPY_OUT_PRODUCT)/vendor_overlay/$(PRODUCT_EXTRA_VNDK_VERSIONS)/etc/vintf/manifest/vendor_override_manifest.xml
 
 # Rootdir
 PRODUCT_PACKAGES += \
@@ -68,12 +67,12 @@ PRODUCT_PACKAGES += \
     fstab.mt6785
 
 PRODUCT_COPY_FILES += \
-    $(COMMON_PATH)/rootdir/etc/fstab.mt6785:$(TARGET_COPY_OUT_RAMDISK)/fstab.mt6785
+    $(LOCAL_PATH)/rootdir/etc/fstab.mt6785:$(TARGET_COPY_OUT_RAMDISK)/fstab.mt6785
 
 # Keylayout
 PRODUCT_COPY_FILES += \
-    $(COMMON_PATH)/keylayout/mtk-kpd.kl:$(TARGET_COPY_OUT_SYSTEM)/usr/keylayout/mtk-kpd.kl \
-    $(COMMON_PATH)/keylayout/touchpanel.kl:$(TARGET_COPY_OUT_SYSTEM)/usr/keylayout/touchpanel.kl
+    $(LOCAL_PATH)/keylayout/mtk-kpd.kl:$(TARGET_COPY_OUT_SYSTEM)/usr/keylayout/mtk-kpd.kl \
+    $(LOCAL_PATH)/keylayout/touchpanel.kl:$(TARGET_COPY_OUT_SYSTEM)/usr/keylayout/touchpanel.kl
 
 # KPOC
 PRODUCT_PACKAGES += \
@@ -82,7 +81,7 @@ PRODUCT_PACKAGES += \
 
 # Lights
 PRODUCT_PACKAGES += \
-    android.hardware.light@2.0-service.realme_mt6785
+    android.hardware.light@2.0-service.RMX2001
 
 # NFC
 PRODUCT_PACKAGES += \
@@ -94,17 +93,17 @@ PRODUCT_PACKAGES += \
 
 # Overlays
 DEVICE_PACKAGE_OVERLAYS += \
-    $(COMMON_PATH)/overlay \
-    $(COMMON_PATH)/overlay-lineage
+    $(LOCAL_PATH)/overlay \
+    $(LOCAL_PATH)/overlay-aosp
 
 # Permissions
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.fingerprint.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/android.hardware.fingerprint.xml \
     frameworks/native/data/etc/android.software.controls.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/android.software.controls.xml \
-    $(COMMON_PATH)/permissions/privapp-permissions-hotword.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/permissions/privapp-permissions-hotword.xml
+    $(LOCAL_PATH)/permissions/privapp-permissions-hotword.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/permissions/privapp-permissions-hotword.xml
 
 # Properties
-include $(COMMON_PATH)/properties.mk
+include $(LOCAL_PATH)/properties.mk
 
 # RcsService
 PRODUCT_PACKAGES += \
@@ -117,7 +116,7 @@ PRODUCT_AAPT_CONFIG := normal
 PRODUCT_AAPT_PREF_CONFIG := xxhdpi
 
 # Soong namespaces
-PRODUCT_SOONG_NAMESPACES += $(COMMON_PATH)
+PRODUCT_SOONG_NAMESPACES += $(LOCAL_PATH)
 
 # Symbols
 PRODUCT_PACKAGES += \
@@ -125,7 +124,7 @@ PRODUCT_PACKAGES += \
 
 # Vendor Services - DISABLED
 PRODUCT_COPY_FILES += \
-    $(COMMON_PATH)/placeholder:$(TARGET_COPY_OUT_PRODUCT)/vendor_overlay/$(PRODUCT_EXTRA_VNDK_VERSIONS)/etc/init/vendor.oppo.hardware.biometrics.face@1.0-service.rc
+    $(LOCAL_PATH)/placeholder:$(TARGET_COPY_OUT_PRODUCT)/vendor_overlay/$(PRODUCT_EXTRA_VNDK_VERSIONS)/etc/init/vendor.oppo.hardware.biometrics.face@1.0-service.rc
 
 # Wi-Fi
 PRODUCT_PACKAGES += \
@@ -133,4 +132,4 @@ PRODUCT_PACKAGES += \
     WifiOverlay
 
 # Inherit vendor
-$(call inherit-product, vendor/realme/mt6785-common/mt6785-common-vendor.mk)
+$(call inherit-product, vendor/realme/RMX2001/RMX2001-vendor.mk)
