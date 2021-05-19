@@ -1,0 +1,3 @@
+libOpenCL.so
+libvpu.so
+libion_mtk.so
