@@ -2,14 +2,16 @@
 
 # AEE
 vendor/bin/rttv
-vendor/lib/libaedv.so
 vendor/lib/libdirect-coredump.so
-vendor/lib/libladder.so
-vendor/lib/libudf.so
-vendor/lib64/libaedv.so
 vendor/lib64/libdirect-coredump.so
-vendor/lib64/libladder.so
-vendor/lib64/libudf.so
+
+# AEE - from RMX2001L1-user 11 RP1A.200720.011 RMX2001_11.C.03 release-keys
+vendor/lib/libaedv.so|890379be0a71e647b8c8f885e8c7288fb3d849ba
+vendor/lib/libladder.so|b3161af9c1ae115b467ed6d210355348717145c8
+vendor/lib/libudf.so|0ff2e45766f5ff54a7b975afd69f13ec5d20cd81
+vendor/lib64/libaedv.so|f011b65f0638c0305e7f113b5d6109a162c1a061
+vendor/lib64/libladder.so|47ab171fde2026c25c0c63f0af9bfcee3fcd74a9
+vendor/lib64/libudf.so|6e43a3069e9f36e188433a03906800b73f429e24
 
 # Audio
 vendor/lib/libaudiocompensationfilterc.so
